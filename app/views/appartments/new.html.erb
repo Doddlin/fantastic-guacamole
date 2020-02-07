@@ -1,0 +1,15 @@
+<div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <%= simple_form_for(@appartment, html: { class: '' }) do |f| %>
+                    <%= f.input :appartmentnr, label: 'Appartment number', as: :integer %>
+                    <%= f.input :habitant, as: :integer %>
+                    <%= f.input :address %>
+                    <%= f.input :town %>
+                    <%= f.input :country %>
+                    <%= f.association :propowner, label_method: :propownername %>
+                    <%= f.submit "Save", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>

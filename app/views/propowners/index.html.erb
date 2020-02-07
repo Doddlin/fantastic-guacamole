@@ -1,0 +1,15 @@
+<div class="container">
+<h1>Add a Propowner</h1>
+<%= @Propowners %>
+
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <%= simple_form_for(@propowner, html: { class: '' }) do |f| %>
+                    <%= f.input :propownername %>
+                    <%= f.submit "Save", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
