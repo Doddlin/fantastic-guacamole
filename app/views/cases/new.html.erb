@@ -1,0 +1,13 @@
+<div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <%= simple_form_for(@case, html: { class: '' }) do |f| %>
+                    <%= f.input :casetitle, label: 'Case Title:'%>
+                    <%= f.input :casedescription %>
+                    <%= f.association :user, label_method: :name %>
+                    <%= f.association :appartment %>
+                    <%= f.submit "Save", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>

@@ -21,7 +21,7 @@
 
           <%= f.label :usertype, "What user are you?" %>
           <%= f.select :usertype,
-                      options_for_select([["Property Owner", "propowner"], ['Supplier', 'supplier']]),
+                      options_for_select([["Property Owner", "propowner"], ['Supplier', 'supplier'], ['Habitant', 'habitant']]),
                       {},
                       {:class => "form-control required"} %>
         </div>

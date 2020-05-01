@@ -1,22 +1,64 @@
 <div class="container">
-<h1>View your appartment</h1>
+<h1>View your apartment</h1>
 
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <%= simple_form_for(@appartment, html: { class: '' }) do |f| %>
-                    <%= f.input :appartmentnr, label: 'Appartment number', as: :integer %>
-                    <%= f.input :habitant, as: :integer %>
-                    <%= f.input :address %>
-                    <%= f.input :town %>
-                    <%= f.input :country %>
-                    <%= f.association :propowner, label_method: :propownername %>
-                    <%= f.submit "Save", class: "btn btn-primary" %>
-                <% end %>
+<div class="row">
+    <div class="col col-sm-4">
+        <h6>Apartment number: <%=@appartment.appartmentnr %></h6>
+    </div>
+    <div class="col col-sm-4">
+        <h6>Habitant: <%=@appartment.habitant %></h6>
+    </div>
+    <div class="col col-sm-4">
+        <h6>Address: <%=@appartment.address %></h6>
+    </div>
+    <div class="col col-sm-4">
+        <h6>Town: <%=@appartment.town %></h6>
+    </div>
+    <div class="col col-sm-4">
+        <h6>Country: <%=@appartment.country %></h6>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <%= simple_form_for(@appartment, html: { class: '' }) do |f| %>
+                        <%= f.input :appartmentnr, label: 'Appartment number', as: :integer %>
+                        <%= f.input :habitant, as: :integer %>
+                        <%= f.input :address %>
+                        <%= f.input :town %>
+                        <%= f.input :country %>
+                        <%= f.association :propowner, label_method: :propownername %>
+                        <%= f.submit "Save", class: "btn btn-primary" %>
+                    <% end %>
+                    <br>
+                    <%= link_to 'Delete Apartment', appartment_path(@appartment), class: "btn btn-danger",
+                        method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
             </div>
         </div>
     </div>
 
-    <%= link_to 'Delete Apartment', appartment_path(@appartment), class: "btn btn-danger",
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="list-group">
+            <%@appartment.cases.each do |c|%>
+                <li class="list-group-item">
+                <div class="row">
+                <div class="col-sm-1 success casestatus list">
+                <% if c.case_status == "Closed" %>
+                <span class="badge badge-success"><%=c.case_status%></span>
+                <% else %>
+                <span class="badge badge-warning"><%=c.case_status%></span>
+                <% end %>
+                </div>
+                <div class="col-sm-4"><%=c.casetitle%></div>
+                </div>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+    </div>
+
+    
 </div>

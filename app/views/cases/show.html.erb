@@ -1,0 +1,20 @@
+<h1><%= @case.casetitle %></h1>
+
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <%= simple_form_for(@case, html: { class: '' }) do |f| %>
+                    <%= f.input :casetitle, label: 'Case title:' %>
+                    <%= f.input :casedescription%>
+                    <%= f.submit "Save", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+        <%= form_for [@case, Comment.new] do |f| %>
+      <%= f.text_area :content, placeholder: "Comment the case" %><br/>
+      <%= f.submit "Post!"  %>
+      <% end %>
+    <ul>
+        <%= render partial: 'comments/comment', collection: @case.comments %>
+    </ul>
+    </div>

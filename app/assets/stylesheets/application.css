@@ -17,7 +17,7 @@
  @import url('https://fonts.googleapis.com/css?family=Lora|Montserrat:300,400&display=swap');
  @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
  *{
-     font-family: "Lora";
+     font-family: "Roboto";
  }
 
  h1, h2, h3, h4, h5, h6, a{
@@ -50,4 +50,31 @@
      background-color: lightslategray;
      color: white;
     min-height: 100vh;
+ }
+ 
+ .nav-link {
+     color: white;
+ }
+
+ .commentholder{
+     margin-top: 10px;
+ }
+
+ .commentcontent{
+    list-style: none;
+    padding: 5px;
+ }
+
+ .dashboard{
+     background-color: azure;
+     height: 100vh;
+ }
+
+ .dashboard a {
+        color: grey;
+ }
+
+ .casestatus{
+    /* color: green; */
+     font-family: Roboto;
  }

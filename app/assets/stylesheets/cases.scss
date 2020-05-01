@@ -1,0 +1,18 @@
+// Place all the styles related to the cases controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.card{
+    border-top: green;
+    border-width: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.caseclosed{
+   border-top: red;
+   border-width: 3px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}

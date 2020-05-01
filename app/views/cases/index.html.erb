@@ -1,0 +1,19 @@
+
+<h1>Manage your cases</h1>
+
+    <div class="col-sm-9">
+        <div class="card-deck">
+        <% @cases.each do |c| %>
+            <div class="col-sm-6 col-md-4 col-lg-8 addedmargin">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= c.casetitle %></h5>
+                        <p><%= c.casedescription %></p>
+                        <span><%= c.case_status %></span>
+                        <%= link_to 'View Case', case_path(c), {:class => "btn btn-primary"} %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    </div>
