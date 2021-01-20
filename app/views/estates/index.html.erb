@@ -1,0 +1,10 @@
+<div class="container">
+<h3>Manage your estates</h3>
+    <div class="col-md-12">
+        <% @estates.each do |estate| %>
+            <div class="col-md-3">
+                <h5><%= estate.address %></h5>
+                <%= button_to("Go to estate", estate) %>
+            </div>
+        <% end %>
+</div>

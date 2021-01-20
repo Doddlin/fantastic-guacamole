@@ -29,7 +29,7 @@ class AppartmentsController < ApplicationController
 
     private
         def appartment_params
-            params.require(:appartment).permit(:appartmentnr, :habitant, :address, :town, :country, :propowner_id)
+            params.require(:appartment).permit(:appartmentnr, :habitant, :address, :town, :country, :estate_id)
         end
 
 

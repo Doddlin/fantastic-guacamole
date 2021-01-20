@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_220618) do
+ActiveRecord::Schema.define(version: 2020_06_08_203957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2020_02_19_220618) do
     t.bigint "propowner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["propowner_id"], name: "index_appartments_on_propowner_id"
   end
 
   create_table "cases", force: :cascade do |t|
@@ -57,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_02_19_220618) do
     t.integer "commentable_id"
     t.string "commentable_type"
     t.index ["case_id"], name: "index_comments_on_case_id"
+  end
+
+  create_table "estates", force: :cascade do |t|
+    t.string "address"
+    t.string "zipcode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "propowner_id"
+    t.index ["propowner_id"], name: "index_estates_on_propowner_id"
   end
 
   create_table "propowners", force: :cascade do |t|
@@ -85,4 +93,5 @@ ActiveRecord::Schema.define(version: 2020_02_19_220618) do
 
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cases", "users"
+  add_foreign_key "estates", "propowners"
 end

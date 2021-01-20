@@ -1,3 +1,3 @@
 class Propowner < ApplicationRecord
-    has_many :appartments
+    has_many :estates
 end

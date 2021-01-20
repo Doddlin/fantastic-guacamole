@@ -1,0 +1,9 @@
+<div class="col col-md-3">
+    <h2>Add Estate</h2>
+    <%= simple_form_for(@estate, html: { class: '' }) do |f| %>
+        <%= f.input :address %>
+        <%= f.input :zipcode %>
+        <%= f.association :propowner %>
+        <%= f.submit "Save" %>
+    <% end %>
+</div>
