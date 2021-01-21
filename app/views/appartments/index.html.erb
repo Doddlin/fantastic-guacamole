@@ -1,7 +1,6 @@
 
 <h1>Manage your apartments</h1>
 
-
     <% @appartments.each do |a| %>
     <div class="col-sm-6 col-md-4 col-lg-3 addedmargin">
         <div class="card">
@@ -11,9 +10,15 @@
                     <li>Apartment number: <%= a.appartmentnr %></li>
                     <li>Number of habitants: <%= a.habitant %></li>
                 </ul>
-                <%= link_to 'View Apartment', appartment_path(a), {:class => "btn btn-primary"} %>
+                <%= link_to(a, :class => "btn btn-info") do %>
+                    <%= icon_get("arrow-right-circle", "View Apartment") %>
+                <% end %>
             </div>
         </div>
         </div>
     <% end %>
+
+    <%= link_to(new_appartment_url, :class => "btn btn-success") do %>
+            <%= icon_get("plus-circle", "Add Apartment") %>
+        <% end %>
     </div>

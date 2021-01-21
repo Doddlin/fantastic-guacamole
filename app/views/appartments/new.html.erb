@@ -7,7 +7,7 @@
                     <%= f.input :address %>
                     <%= f.input :town %>
                     <%= f.input :country %>
-                    <%= f.association :estate %>
+                    <%= f.association :estate, collection: Estate.all.map { |estate| [estate.address, estate.id]} %>
                     <%= f.submit "Save", class: "btn btn-primary" %>
                 <% end %>
             </div>

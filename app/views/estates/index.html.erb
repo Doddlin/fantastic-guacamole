@@ -1,10 +1,30 @@
 <div class="container">
 <h3>Manage your estates</h3>
     <div class="col-md-12">
-        <% @estates.each do |estate| %>
-            <div class="col-md-3">
-                <h5><%= estate.address %></h5>
-                <%= button_to("Go to estate", estate) %>
-            </div>
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Zip code</th>
+                <th>Number of cases</th>
+                <th>Go To</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <% @estates.each do |estate| %>
+                <tr>
+                    <td><%= estate.address %></td>
+                    <td><%= estate.zipcode %></td>
+                    <td>5</td>
+                    <td><%= link_to(estate, :class => "btn btn-info") do %>
+                            <%= icon_get("arrow-right-circle", "View Estate") %>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+        </table>
+            <%= link_to(new_estate_url, :class => "btn btn-success") do %>
+            <%= icon_get("plus-circle", "Add Estate") %>
         <% end %>
 </div>

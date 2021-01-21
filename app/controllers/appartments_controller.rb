@@ -9,6 +9,14 @@ class AppartmentsController < ApplicationController
         @appartment = Appartment.new
     end
 
+    def update
+        @appartment = Appartment.find(params[:id])
+        @appartment.update(appartment_params)
+        flash[:notice] = "Apartment saved."
+        redirect_to @appartment
+    end
+
+
     def create
         @appartment = Appartment.new(appartment_params)
         @appartment.save

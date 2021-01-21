@@ -11,7 +11,11 @@ class EstatesController < ApplicationController
     def create
         @estate = Estate.new(estate_params)
         @estate.save
-        redirect_to(root_url)
+        redirect_to(@estate)
+    end
+
+    def show
+        @estate = Estate.find(params[:id])
     end
 
     private

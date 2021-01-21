@@ -4,7 +4,7 @@
                 <%= simple_form_for(@case, html: { class: '' }) do |f| %>
                     <%= f.input :casetitle, label: 'Case Title:'%>
                     <%= f.input :casedescription %>
-                    <%= f.association :user, label_method: :name %>
+                    <%= f.association :user, collection: User.all.map { |user| [user.name, user.id] } %>
                     <%= f.association :appartment %>
                     <%= f.submit "Save", class: "btn btn-primary" %>
                 <% end %>

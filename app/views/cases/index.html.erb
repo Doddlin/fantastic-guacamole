@@ -1,6 +1,8 @@
 
 <h1>Manage your cases</h1>
-
+    <%= link_to(new_case_url, :class => "btn btn-success") do %>
+            <%= icon_get("plus-circle", "Create Case") %>
+        <% end %>
     <div class="col-sm-9">
         <div class="card-deck">
         <% @cases.each do |c| %>

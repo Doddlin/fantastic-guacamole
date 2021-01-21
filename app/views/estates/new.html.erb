@@ -1,9 +1,9 @@
 <div class="col col-md-3">
     <h2>Add Estate</h2>
     <%= simple_form_for(@estate, html: { class: '' }) do |f| %>
-        <%= f.input :address %>
+        <%= f.input :address, html: {class: "form_label"} %>
         <%= f.input :zipcode %>
-        <%= f.association :propowner %>
+        <%= f.association :propowner, collection: Propowner.all.map { |propowner| [propowner.propownername, propowner.id] } %>
         <%= f.submit "Save" %>
     <% end %>
 </div>

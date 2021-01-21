@@ -6,14 +6,15 @@
 #
 default: &default
   adapter: postgresql
-  username: didrikbirkemalm
+  username: postgres
   encoding: unicode
   host: localhost
   pool: 5
+  password: ringvagen
 
 development:
   <<: *default
-  database: Appartify_dev
+  database: appartify
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

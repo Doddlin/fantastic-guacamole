@@ -1,0 +1,10 @@
+
+<h2>Current cases</h2>
+<% @estate.appartments.each do |a| %>
+    <% a.cases.each do |c| %>
+        <h4><%= c.casetitle %></h4>
+        <%= link_to(c, :class => "btn btn-dark") do %>
+            <%= icon_get("arrow-right-circle", "Go to Case") %>
+        <% end %>
+    <% end %>
+<% end %>
