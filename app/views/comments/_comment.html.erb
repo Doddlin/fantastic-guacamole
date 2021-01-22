@@ -1,11 +1,5 @@
 <li class="col commentcontent">
-  <%= comment.content %> -
-
-  <%= form_for [@case, Comment.new] do |f| %>
-      <%= f.text_area :content, placeholder: "Add a Reply" %><br/>
-      <%= f.submit "Reply"  %>
-      <% end %>
-
+  <span class="thecomment"><%= comment.content %> - </span><span class="commentmeta"><%= time_ago_in_words(comment.created_at) %> ago by <%= User.find(comment.user_id).name %></span>
   <ul class="commentholder">
       <%= render partial: 'comments/comment', collection: comment.comments %>
   </ul>

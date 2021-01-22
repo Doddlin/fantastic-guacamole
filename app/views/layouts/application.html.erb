@@ -4,6 +4,7 @@
     <title>Apartify</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -54,24 +55,31 @@
     </nav>
 
     <div class="container-fluid">
+
       <div class="row">
-    <% if user_signed_in? %>
-      <div class="col-sm-2 dashboard">
-        <%= link_to "Profile", "", {:class => "nav-link dropdown-toggle", :id => "navbarDropdownMenuLink", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"} %>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Sign Out", destroy_user_session_url, :method => :delete, class: "dropdown-item"%>
-            <%= link_to "Edit Profile", edit_user_registration_url, class: "dropdown-item"%>
+
+        <% if user_signed_in? %>
+          <div class="col-sm-2 dashboard">
+            <%= link_to "Profile", "", {:class => "nav-link dropdown-toggle", :id => "navbarDropdownMenuLink", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"} %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Sign Out", destroy_user_session_url, :method => :delete, class: "dropdown-item"%>
+              <%= link_to "Edit Profile", edit_user_registration_url, class: "dropdown-item"%>
+            </div>
           </div>
+          <div class="col-sm-10">
+            <%= yield %>
+          </div>
+
+        <% else %>
+
+          <div class="col-sm-12">
+            <%= yield %>
+          </div>
+
+        <% end %>
+
       </div>
-      <div class="col-md-10">
-          <%= yield %>
-      </div>
-    <% else %>
-      <div class="col-lg-12">
-        <%= yield %>
-      </div>
-    <% end %>
-    </div>
+      
     </div>
   </body>
 </html>

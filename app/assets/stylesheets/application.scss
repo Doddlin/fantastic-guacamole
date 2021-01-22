@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+ //@import '../../../node_modules/bootstrap/scss/_variables.scss';
+ @import 'cases';
+ @import 'comments';
+
+ @import url('https://fonts.googleapis.com/css?family=Lora|Montserrat:300,400&display=swap');
+ @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+ h1, h2, h3, h4, h5, h6, a{
+     /*font-family: "Montserrat";
+     font-weight: 300;*/
+ }
+
+ .fullheight{
+    display: block;
+    height: 100vh;
+    background-color: #08AEEA;
+    background-image: linear-gradient(45deg, #08AEEA 0%, #2AF598 100%);
+    color: white;    
+    padding-top: 5vh;
+ }
+
+ .addedmargin{
+     margin-bottom: 5vh;
+ }
+
+ .acard{
+     border: 2px solid lightblue;
+     border-radius: 10px;
+     padding: 20px;
+     box-shadow: rgba(30,30,30,0.2) 0px 0px 20px;
+     margin-top: 10vh;
+ }
+
+ .static{
+     background-color: lightslategray;
+     color: white;
+     min-height: 100vh;
+ }
+ 
+ .nav-link {
+     color: white;
+ }
+
+ .commentholder{
+     margin-top: 10px;
+ }
+
+ .commentcontent{
+    list-style: none;
+    padding: 5px;
+ }
+
+ .dashboard{
+     background-color: azure;
+     height: 100vh;
+ }
+
+ .dashboard a {
+        color: grey;
+ }
+
+ .casestatus{
+    /* color: green; */
+     /*font-family: Roboto;*/
+ }
+
+ .bi {
+    margin-left: 7px;
+    margin-top: -0.125em;
+ }
+
+ .help{
+     font-family: "Garamond";
+ }

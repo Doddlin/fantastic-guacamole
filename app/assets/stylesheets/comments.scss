@@ -1,3 +1,33 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment{
+    margin: 10px;
+}
+
+.thecomment {
+    font-size: 0.9rem;;
+}
+
+.commentmeta {
+    color: $gray-500;
+    font-size: 0.75rem;
+}
+
+.comments form{
+    margin: 10px;
+
+    textarea{
+        background: linear-gradient(45deg, $teal-200, $teal-100);
+        color: white;
+        border-radius: 7px;
+        padding: 5px;
+        font-weight: lighter;
+        font-size: 16px;
+
+    }
+    textarea::placeholder{
+        color: white;
+    }
+}

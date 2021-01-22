@@ -1,20 +1,35 @@
-<h1><%= @case.casetitle %></h1>
-
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <%= simple_form_for(@case, html: { class: '' }) do |f| %>
-                    <%= f.input :casetitle, label: 'Case title:' %>
-                    <%= f.input :casedescription%>
-                    <%= f.submit "Save", class: "btn btn-primary" %>
-                <% end %>
+<div class="container">
+    <h1><%= @case.casetitle %></h1>
+    <div class="row gy-5">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <%= simple_form_for(@case, html: { class: '' }) do |f| %>
+                        <%= f.input :casetitle, label: 'Case title:' %>
+                        <%= f.input :casedescription%>
+                        <%= f.submit "Save", class: "btn btn-primary" %>
+                    <% end %>
+                    <hr>
+                    <h6>Current status:</h6>
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item currentstatus list-group-item-case">Case received</li>
+                            <li class="list-group-item list-group-item-case">Case assigned</li>
+                            <li class="list-group-item list-group-item-case">Case resolved</li>
+                        </ul>
+                </div>
             </div>
         </div>
-        <%= form_for [@case, Comment.new] do |f| %>
-      <%= f.text_area :content, placeholder: "Comment the case" %><br/>
-      <%= f.submit "Post!"  %>
-      <% end %>
-    <ul>
-        <%= render partial: 'comments/comment', collection: @case.comments %>
-    </ul>
     </div>
+    <div class="row gy-5">
+        <div class="comments col-sm-6">
+            <%= form_for [@case, Comment.new] do |f| %>
+            <%= f.text_area :content, placeholder: "Comment the case" %><br/>
+            <%= f.hidden_field :user_id, value: current_user.id%>
+            <%= f.submit "Post!"  %>
+            <% end %>
+            <ul class="comment">
+                <%= render partial: 'comments/comment', collection: @case.comments %>
+            </ul>
+        </div>
+    </div>
+</div>
