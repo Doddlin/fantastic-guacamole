@@ -17,15 +17,6 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:error] %>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= flash[:error] %></div>
-    <% end %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
     <%= link_to 'Fantastic Guacamole', root_url, class: "navbar-brand" %>
@@ -55,18 +46,39 @@
     </nav>
 
     <div class="container-fluid">
+    <% if flash[:notice] %>
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <%= flash[:notice] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= flash[:error] %></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <% end %>
 
       <div class="row">
 
         <% if user_signed_in? %>
-          <div class="col-sm-2 dashboard">
-            <%= link_to "Profile", "", {:class => "nav-link dropdown-toggle", :id => "navbarDropdownMenuLink", :role => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"} %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Sign Out", destroy_user_session_url, :method => :delete, class: "dropdown-item"%>
-              <%= link_to "Edit Profile", edit_user_registration_url, class: "dropdown-item"%>
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item"><%= link_to(icon_get("house", "Dashboard"), estates_dashboard_url, class: "nav-link") %></li>
+                <li class="nav-item"><%= link_to(icon_get("building", "Properties"), estates_url, class: "nav-link") %></li>
+                <li class="nav-item"><%= link_to(icon_get("journals", "Cases"), cases_url, class: "nav-link") %></li>
+                <li class="nav-item"><%= link_to(icon_get("box-arrow-right", "Log Off"), destroy_user_session_url, class: "nav-link", method: :delete) %></li>
+              </ul>
             </div>
+
+            <div class="position-sticky pt-3">
+            <h5>Change usertype</h5>
+            <ul class="nav flex-column">
+              <%= link_to("Edit Profile", edit_user_registration_url, class: "nav-link", usertype: "tenant")%>
+            </ul>
           </div>
-          <div class="col-sm-10">
+          </nav>
+          <div class="col-sm-12 col-md-9 col-lg-10">
             <%= yield %>
           </div>
 

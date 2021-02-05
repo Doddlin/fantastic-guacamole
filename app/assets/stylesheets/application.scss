@@ -16,14 +16,21 @@
  //@import '../../../node_modules/bootstrap/scss/_variables.scss';
  @import 'cases';
  @import 'comments';
+ @import 'dashboard';
 
  @import url('https://fonts.googleapis.com/css?family=Lora|Montserrat:300,400&display=swap');
  @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 
  h1, h2, h3, h4, h5, h6, a{
-     /*font-family: "Montserrat";
-     font-weight: 300;*/
+     font-family: "Roboto";
+     font-weight: 300;
+ }
+
+ .extrapadding{
+     padding-top: 2rem;
+     padding-left: 2rem;
  }
 
  .fullheight{
@@ -53,9 +60,20 @@
      min-height: 100vh;
  }
  
- .nav-link {
-     color: white;
- }
+ #sidebarMenu{
+     height: 100%;
+    .nav-link {
+        color: $indigo;
+    }
+}
+
+.nav-link{
+    color: white;
+
+    &:hover{
+        color: $indigo-200;
+    }
+}
 
  .commentholder{
      margin-top: 10px;
@@ -88,3 +106,17 @@
  .help{
      font-family: "Garamond";
  }
+
+ .toggle-content {
+	display: none;
+	height: 0;
+  	opacity: 0;
+	overflow: hidden;
+	transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
+}
+
+.toggle-content.is-visible {
+	display: block;
+	height: auto;
+  	opacity: 1;
+}

@@ -4,9 +4,13 @@ class EstatesController < ApplicationController
     end
 
     def index
-        @estates = Estate.all
+        @myestates = Estate.where(:propowner_id => current_user.id)
     end
     
+    def dashboard
+        @myestates = Estate.where(:propowner_id => current_user.id)
+        @mycases = Case.all
+    end
 
     def create
         @estate = Estate.new(estate_params)

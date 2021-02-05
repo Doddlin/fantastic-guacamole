@@ -1,0 +1,67 @@
+<div class="col extrapadding">
+    <h3>Dashboard</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Cases
+                </div>
+                <div class="card-body">
+                    <div class="content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Case Title</th>
+                                    <th>Created At</th>
+                                    <th>Property</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @mycases.each do |c| %>
+                                    <tr class="align-middle">
+                                        <td><%= c.casetitle %></td>
+                                        <td><%= c.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+                                        <td><%= c.estate.address %></td>
+                                        <td><%= link_to(icon_get("journal", "Go To Case"), case_path(c), {:class => "btn btn-primary"}) %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Estates
+                </div>
+                <div class="card-body">
+                    <div class="content">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Case Title</th>
+                                    <th>Created At</th>
+                                    <th>Property</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @mycases.each do |c| %>
+                                    <tr class="align-middle">
+                                        <td><%= c.casetitle %></td>
+                                        <td><%= c.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+                                        <td><%= c.estate.address %></td>
+                                        <td><%= link_to(icon_get("journal", "Go To Case"), case_path(c), {:class => "btn btn-primary"}) %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,17 +5,30 @@
             <div class="card">
                 <div class="card-body">
                     <%= simple_form_for(@case, html: { class: '' }) do |f| %>
-                        <%= f.input :casetitle, label: 'Case title:' %>
-                        <%= f.input :casedescription%>
+                        <div class="mb-3">
+                            <%= f.input :casetitle, label: 'Case title:' %>
+                        </div>
+                        <div class="mb-3">
+                            <%= f.input :casedescription %>
+                        </div>
                         <%= f.submit "Save", class: "btn btn-primary" %>
                     <% end %>
                     <hr>
-                    <h6>Current status:</h6>
+                    <h5>Current status:</h5>
                         <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item currentstatus list-group-item-case">Case received</li>
-                            <li class="list-group-item list-group-item-case">Case assigned</li>
-                            <li class="list-group-item list-group-item-case">Case resolved</li>
+                            <% Case.case_statuses.each do |k, v| %> 
+                                <li class="list-group-item list-group-item-case <%= "currentstatus" if @case.case_status == k %>">Case <%= k.to_s.capitalize %></li>
+                            <% end %>
                         </ul>
+                    <hr>
+                    <h5>Actions</h5>
+                    <span>Assign Case</span>
+                        <%= simple_form_for(@case, html: {class: "" }) do |a| %>
+                            <div class="mb-3">
+                                <%= a.input :assigned_to, collection: @suppliers.map { |sup| [sup.email, sup.id]}, input_html: { class: 'form-control' } %>
+                            </div>
+                                <%= a.button :submit, class: 'btn btn-primary' %>
+                        <% end %>
                 </div>
             </div>
         </div>

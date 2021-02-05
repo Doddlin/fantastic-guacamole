@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_170255) do
+ActiveRecord::Schema.define(version: 2021_01_25_095910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 2021_01_22_170255) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.string "case_status"
     t.bigint "appartment_id"
+    t.integer "assigned_to"
+    t.integer "case_status"
     t.index ["appartment_id"], name: "index_cases_on_appartment_id"
     t.index ["user_id"], name: "index_cases_on_user_id"
   end
@@ -59,6 +60,15 @@ ActiveRecord::Schema.define(version: 2021_01_22_170255) do
     t.bigint "user_id"
     t.index ["case_id"], name: "index_comments_on_case_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "companyname"
+    t.string "address"
+    t.string "country"
+    t.integer "companytype"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "estates", force: :cascade do |t|

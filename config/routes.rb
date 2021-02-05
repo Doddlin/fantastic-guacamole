@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get "/pages/:page" => "pages#show"
+  get "/estates/dashboard" => "estates#dashboard"
 
   resources :appartments
   resources :estates
